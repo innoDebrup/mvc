@@ -1,5 +1,11 @@
 <?php
-require '../../vendor/autoload.php';
+if ($_SERVER['SCRIPT_NAME'] == '/index.php') {
+  require './vendor/autoload.php';
+}
+else {
+  require '../vendor/autoload.php';
+}
+
 use Dotenv\Dotenv;
 /**
  * Class to handle .env file contents.

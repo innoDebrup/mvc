@@ -1,6 +1,6 @@
 <?php
-require_once '../../vendor/autoload.php';
-require_once '../core/LoadEnv.php';
+require_once './vendor/autoload.php';
+require_once './core/LoadEnv.php';
 use PHPMailer\PHPMailer\PHPMailer;
 
 class SendMail {

@@ -1,6 +1,6 @@
 <?php
-require_once '../../vendor/autoload.php';
-require_once '../core/LoadEnv.php';
+require_once './vendor/autoload.php';
+require_once './core/LoadEnv.php';
 // use GuzzleHttp\Client;
 
 /**
@@ -77,17 +77,6 @@ class Validate {
     else {
       return TRUE;
     }
-  }
-
-  /**
-   * Function to generate OTP.
-   *
-   * @return int
-   *  Returns the OTP.
-   */
-  public function genOTP() {
-    $otp = rand(1000, 9999);
-    return $otp;
   }
 
   /**

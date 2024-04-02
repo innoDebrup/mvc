@@ -31,5 +31,18 @@ class CreateQuery extends ConnectDB {
       'email' => $email,
       'password' => $password_hash,
     ]);
+    $stmt2 = $conn->prepare('SELECT user_id FROM Users WHERE email = :email;');
+    $stmt2->execute([
+      'email' => $email
+    ]);
+    $resp = $stmt2->fetch(PDO::FETCH_ASSOC);
+    $user_id = $resp['user_id'];
+    $stmt3 = $conn->prepare('INSERT INTO UserDetails (user_id) VALUES (:user_id);');
+    $stmt3->execute([
+      'user_id' => $user_id
+    ]);
+  }
+  public function addPost() {
+    
   }
 }

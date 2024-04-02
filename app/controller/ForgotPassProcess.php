@@ -1,6 +1,6 @@
 <?php
-require_once '../model/QueryCall.php';
-require_once '../controller/SendMail.php';
+require_once './model/QueryCall.php';
+require_once './controller/SendMail.php';
 
 $send_mail = new SendMail();
 $sent = 0;

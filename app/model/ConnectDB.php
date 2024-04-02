@@ -1,5 +1,10 @@
 <?php
-require '../core/LoadEnv.php';
+if ($_SERVER['SCRIPT_NAME'] == '/index.php') {
+  require_once './core/LoadEnv.php';
+}
+else {
+  require_once '../core/LoadEnv.php';
+}
 
 /**
  * Database Class to connect to the MySQL server and insert data in to the database.

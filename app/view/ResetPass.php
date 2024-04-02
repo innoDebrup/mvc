@@ -1,12 +1,12 @@
 <?php
-require '../controller/Login/ResetPassProcess.php';
+require './controller/ResetPassProcess.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./CSS/style.css">
+  <link rel="stylesheet" href="./view/CSS/style.css">
   <title>Forgot</title>
 </head>
 <body>
@@ -30,7 +30,11 @@ require '../controller/Login/ResetPassProcess.php';
       </div>
       <?php endif;?>
       <?php if($reset): ?>
-        <div class="vert-form">
+        <?php 
+        session_unset();
+        session_destroy();
+        ?>
+        <div class="center">
           <h1><?php echo $message; ?></h1>
           <a href='/'>Go to Login page</a>
         </div>  

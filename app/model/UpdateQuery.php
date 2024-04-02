@@ -50,6 +50,81 @@ class UpdateQuery extends ConnectDB {
     ]);
   }
 
+  /**
+   * Function to Edit First Name of the User.
+   *
+   * @param int $user_id
+   *  Unique user_id of the user.
+   * @param string $first_name
+   *  Name to be added replacing the old value.
+   * 
+   * @return void
+   */
+  public function editFirstName($user_id, $first_name) {
+    $conn = $this->conn;
+    $stmt = $conn->prepare("UPDATE UserDetails SET first_name = :first_name WHERE user_id = :user_id");
+    $stmt->execute([
+      'first_name' => $first_name,
+      'user_id' => $user_id
+    ]);
+  }
+
+  /**
+   * Function to Edit Last Name of the User.
+   *
+   * @param int $user_id
+   *  Unique user_id of the user.
+   * @param string $last_name
+   *  Name to be added replacing the old value.
+   * 
+   * @return void
+   */
+  public function editLastName($user_id, $last_name) {
+    $conn = $this->conn;
+    $stmt = $conn->prepare("UPDATE UserDetails SET last_name = :last_name WHERE user_id = :user_id");
+    $stmt->execute([
+      'last_name' => $last_name,
+      'user_id' => $user_id
+    ]);
+  }
+
+  /**
+   * Function to Edit Country Name of the User.
+   *
+   * @param int $user_id
+   *  Unique user_id of the user.
+   * @param string $country
+   *  Country Name to be added replacing the old value.
+   * 
+   * @return void
+   */
+  public function editCountry($user_id, $country) {
+    $conn = $this->conn;
+    $stmt = $conn->prepare("UPDATE UserDetails SET country = :country WHERE user_id = :user_id");
+    $stmt->execute([
+      'country' => $country,
+      'user_id' => $user_id
+    ]);
+  }
+
+  /**
+   * Function to edit Profile Picture of the User.
+   *
+   * @param int $user_id
+   *  Unique user_id of the user.
+   * @param string $country
+   *  Image to be added.
+   * 
+   * @return void
+   */
+  public function editProfile($user_id, $img) {
+    $conn = $this->conn;
+    $stmt = $conn->prepare("UPDATE UserDetails SET profile_pic = :img WHERE user_id = :user_id");
+    $stmt->execute([
+      'img' => $img,
+      'user_id' => $user_id
+    ]);
+  }
 
 }
 

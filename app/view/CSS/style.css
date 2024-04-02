@@ -34,6 +34,16 @@
 
 }
 
+#otpcon {
+  display: flex;
+  flex-direction: column;
+}
+
+#getotpcon {
+  display: flex;
+  justify-content: center;
+}
+
 .options {
   margin: 10px 0;
   ul{

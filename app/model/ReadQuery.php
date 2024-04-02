@@ -120,4 +120,40 @@ class ReadQuery extends ConnectDB {
     $password = $result['password'];
     return $password;
   }
+
+  /**
+   * Retrieves the user_id of the user for further processing.
+   *
+   * @param string $usermail
+   *  Username or Email of the user.
+   * 
+   * @return mixed
+   */
+  public function getUserInfo(string $usermail) {
+    $conn = $this->conn;
+    $stmt = $conn->prepare("SELECT user_id, user_name, email FROM Users WHERE user_name = :usermail OR email = :usermail;");
+    $stmt->execute([
+      'usermail' => $usermail
+    ]);
+    $result_arr = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result_arr;
+  }
+
+  /**
+   * Function to retrieve User Details of the given user.
+   *
+   * @param string $user_id
+   *  User_ID of the required user.
+   * 
+   * @return mixed
+   */
+  public function getUserDetails(string $user_id) {
+    $conn = $this->conn;
+    $stmt = $conn->prepare("SELECT * FROM UserDetails WHERE user_id = :userid ;");
+    $stmt->execute([
+      'userid' => $user_id
+    ]);
+    $result_arr = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result_arr;
+  }
 }

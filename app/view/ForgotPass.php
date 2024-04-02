@@ -1,5 +1,5 @@
 <?php
-require '../controller/Login/SignUpProcess.php';
+require './controller/ForgotPassProcess.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,8 +7,8 @@ require '../controller/Login/SignUpProcess.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./CSS/style.css">
-  <title>Sign Up</title>
+  <link rel="stylesheet" href="./view/CSS/style.css">
+  <title>Forgot Password</title>
 </head>
 
 <body>
@@ -16,17 +16,13 @@ require '../controller/Login/SignUpProcess.php';
     <div>
       <div class="main-head">
         <h1>
-          Sign Up Now!
+          Forgot Password
         </h1>
       </div>
       <div class="vert-form">
-        <form action="/SignUp" method="post">
-          <label for="user_name">Username</label>
-          <input type="text" name="user_name">
+        <form action="/ForgotPass" method="post">
           <label for="email">Email</label>
-          <input type="email" name="email">
-          <label for="password">Password</label>
-          <input type="password" name="password">
+          <input type="email" name="email" required>
           <div class="options">
             <ul>
               <li><a href="/">Go Back to Login</a></li>
@@ -36,6 +32,11 @@ require '../controller/Login/SignUpProcess.php';
         </form>
       </div>
     </div>
+    <?php if ($sent) : ?>
+      <div class="center">
+        <h2>Reset Link sent!!! Check your mail !</h2>
+      </div>
+    <?php endif; ?>
   </div>
 </body>
 

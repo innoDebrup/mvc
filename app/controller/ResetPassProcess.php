@@ -1,6 +1,6 @@
 <?php
-require_once '../model/QueryCall.php';
-require_once '../controller/Validate.php';
+require_once './model/QueryCall.php';
+require_once './controller/Validate.php';
 
 $reset = 0;
 $message = '';
@@ -29,7 +29,7 @@ if (isset($_SESSION['token'])) {
         if ($validator->validPassword($password)) {
           $password_hash = password_hash($password, PASSWORD_DEFAULT);
           $update->resetPass($user_id, $password_hash);
-          $message = 'Password Reset Successfully';
+          $message = 'Password Reset Successfully! Please Login again!';
           $reset = 1;
         }
         else {
@@ -40,7 +40,7 @@ if (isset($_SESSION['token'])) {
   }
   else {
     $message = 'Invalid Link!! Please retry forgot password process !!';
+    session_unset();
+    session_destroy();
   }
-  session_unset();
-  session_destroy();
 }
