@@ -54,6 +54,11 @@ $(document).ready(function() {
       }
     });
   });
+  // Like feature (Testing only).
+  $(document).on("click", "#like-con", function(){
+    let id = $(this).data('post-id');
+    $(this).find('.like').append(id);
+  });
 
 });
 

@@ -13,9 +13,9 @@
     <p><?php echo $post['content'] ?></p>
     <img src="data:<?php echo $post['media_type'];?>;base64, <?php echo (base64_encode($post['media'])); ?>" alt="">
   </div>
-  <div>
-    <a class="like">
-      <i class="uil uil-thumbs-up">0</i>
-    </a>
+  <div id="like-con" data-post-id="<?php echo $post['post_id'];?>">
+    <i class="uil uil-thumbs-up like">
+      <?php echo $post['likes'];?>
+    </i>
   </div>
 </div>
