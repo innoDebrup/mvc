@@ -1,5 +1,5 @@
 <?php
-require './controller/ForgotPassProcess.php';
+require '../controller/ForgotPassProcess.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,8 +7,10 @@ require './controller/ForgotPassProcess.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./view/CSS/style.css">
   <title>Forgot Password</title>
+  <style>
+  <?php require '../view/CSS/style.css';?>
+  </style>
 </head>
 
 <body>

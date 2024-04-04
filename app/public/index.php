@@ -8,24 +8,24 @@ if (isset($url['query'])) {
 
 switch ($path) {
   case '/SignUp':
-    require 'view/SignUp.php';
+    require '../view/SignUp.php';
     break;
   case '/ForgotPass':
-    require 'view/ForgotPass.php';
+    require '../view/ForgotPass.php';
     break;
   case '/ResetPass':
-    require 'view/ResetPass.php';
+    require '../view/ResetPass.php';
     break;
   case '/Home':
-    require 'view/Home.php';
+    require '../view/Home.php';
     break;
   case '/Logout':
-    require 'controller/Logout.php';
+    require '../controller/Logout.php';
     break;
   case '/Profile':
-    require 'view/Profile.php';
+    require '../view/Profile.php';
     break;
   default:
-    require 'view/Login.php';
+    require '../view/Login.php';
     break;
 }

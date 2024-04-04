@@ -1,6 +1,6 @@
 <?php
-require_once './model/QueryCall.php';
-require_once './controller/Validate.php';
+require_once '../model/QueryCall.php';
+require_once '../controller/Validate.php';
 
 $reset = 0;
 $message = '';

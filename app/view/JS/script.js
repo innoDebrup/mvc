@@ -3,7 +3,7 @@ $(document).ready(function() {
   $("#check").click(function() {
     $.ajax({
       // PHP file handling the request
-      url: 'controller/OTPProcess.php',
+      url: 'AJAX/OTPProcess.php',
       // Request method
       type: 'POST',
       // Data to be sent to the server       

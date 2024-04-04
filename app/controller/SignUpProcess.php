@@ -1,7 +1,7 @@
 <?php
 
-require './model/QueryCall.php';
-require_once './controller/Validate.php';
+require '../model/QueryCall.php';
+require_once '../controller/Validate.php';
 session_start();
 $not_duplicate = TRUE;
 $valid_password = TRUE;

@@ -1,5 +1,5 @@
 <?php
-require_once '../vendor/autoload.php';
+require_once '../../vendor/autoload.php';
 
 use Dotenv\Dotenv;
 use PHPMailer\PHPMailer\PHPMailer;
@@ -95,7 +95,7 @@ class OTP {
    *  TRUE if email exists or FALSE if email does not exists in the table.
    */
   public function checkDuplicate (string $email) {
-    require '../model/QueryCall.php';
+    require '../../model/QueryCall.php';
     return $read->checkEmail($email);
   }  
 }

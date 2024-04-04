@@ -1,5 +1,5 @@
 <?php
-require './model/QueryCall.php';
+require '../model/QueryCall.php';
 session_start();
 if (isset($_SESSION['user_mail'])) {
   header('Location: /Home');

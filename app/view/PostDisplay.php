@@ -2,7 +2,7 @@
   <div class="posted-by">
     <div class="pic">
       <?php if (empty($post['profile_pic'])): ?>
-        <img src="./view/public/assets/dummy.jpg" alt="">
+        <img src="assets/dummy.jpg" alt="">
       <?php else: ?>
         <img src="data:image;base64, <?php echo (base64_encode($post['profile_pic'])); ?>" alt="">
       <?php endif; ?>

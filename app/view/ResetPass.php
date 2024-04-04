@@ -1,12 +1,12 @@
 <?php
-require './controller/ResetPassProcess.php';
+require '../controller/ResetPassProcess.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./view/CSS/style.css">
+  <style><?php require '../view/CSS/style.css';?></style>
   <title>Forgot</title>
 </head>
 <body>

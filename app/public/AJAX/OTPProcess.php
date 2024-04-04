@@ -1,5 +1,5 @@
 <?php
-require_once './OTP.php';
+require_once '../../controller/OTP.php';
 
 session_start();
 $success = FALSE;

@@ -31,7 +31,7 @@ $(document).ready(function() {
   $("#more").click(function(){
     $.ajax({
       // PHP file handling the request
-      url: 'controller/LoadMore.php',
+      url: 'AJAX/LoadMore.php',
       // Request method
       type: 'POST',
       // Data to be sent to the server       

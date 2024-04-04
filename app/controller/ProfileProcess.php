@@ -1,5 +1,5 @@
 <?php
-require './model/QueryCall.php';
+require '../model/QueryCall.php';
 $user_info = $read->getUserInfo($_SESSION['user_mail']);
 $user_id = $user_info['user_id'];
 $user_name = $user_info['user_name'];

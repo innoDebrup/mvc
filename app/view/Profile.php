@@ -1,6 +1,6 @@
 <?php
-require './controller/LoginChecker.php';
-require './controller/ProfileProcess.php';
+require '../controller/LoginChecker.php';
+require '../controller/ProfileProcess.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,9 +8,9 @@ require './controller/ProfileProcess.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./view/CSS/profile.css">
+  <style><?php require '../view/CSS/profile.css';?></style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="./view/JS/profile.js"></script>
+  <script><?php require '../view/JS/profile.js';?></script>
   <title>Profile</title>
 </head>
 
@@ -24,7 +24,7 @@ require './controller/ProfileProcess.php';
         <div class="center col">
           <div class='pic'>
             <?php if (empty($image)) : ?>
-              <img src="./view/public/assets/dummy.jpg" alt="Profile">
+              <img src="assets/dummy.jpg" alt="Profile">
             <?php else: ?>
               <img src="data:image;base64, <?php echo(base64_encode($image));?>" alt="Profile">
             <?php endif; ?>

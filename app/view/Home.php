@@ -1,6 +1,6 @@
 <?php
-require './controller/LoginChecker.php';
-require './controller/PostProcess.php';
+require '../controller/LoginChecker.php';
+require '../controller/PostProcess.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,11 +10,16 @@ require './controller/PostProcess.php';
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Navigation Bar with Search Box</title>
-  <link rel="stylesheet" href="./view/CSS/home.css" />
+  <style>
+  <?php require '../view/CSS/home.css';?>
+  </style>
+  <!-- <link rel="stylesheet" href="../view/CSS/home.css" /> -->
   <!-- Unicons CSS -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="./view/JS/home.js" defer></script>
+  <script>
+  <?php require '../view/JS/home.js'; ?>
+  </script>
 </head>
 
 <body>
@@ -63,7 +68,7 @@ require './controller/PostProcess.php';
     <h2 id="top-posts-header">Recent Posts</h2>
     <div class="posts-display">
       <?php foreach($post_arr as $post): ?>
-        <?php require './view/PostDisplay.php'; ?>
+        <?php require '../view/PostDisplay.php'; ?>
       <?php endforeach; ?>
       <div id="loaded-content"></div>
       <div id="load-message"></div>

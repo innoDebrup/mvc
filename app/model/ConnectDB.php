@@ -1,9 +1,9 @@
 <?php
 if ($_SERVER['SCRIPT_NAME'] == '/index.php') {
-  require_once './core/LoadEnv.php';
+  require_once '../core/LoadEnv.php';
 }
 else {
-  require_once '../core/LoadEnv.php';
+  require_once '../../core/LoadEnv.php';
 }
 
 /**
