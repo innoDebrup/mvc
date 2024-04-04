@@ -42,7 +42,26 @@ class CreateQuery extends ConnectDB {
       'user_id' => $user_id
     ]);
   }
-  public function addPost() {
-    
+  public function addPost(int $user_id, string $content, string $media, string $media_type) {
+    $conn = $this->conn;
+    $time = date('Y-m-d H:i:s', time());
+    if (empty($media)) {
+      $stmt = $conn->prepare('INSERT INTO Posts (user_id, content, time) VALUES (:user_id, :content, :time);');
+      $stmt->execute([
+        'user_id' => $user_id,
+        'content' => $content,
+        'time' => $time
+      ]);
+    }
+    else {
+      $stmt = $conn->prepare('INSERT INTO Posts (user_id, content, media, time, media_type) VALUES (:user_id, :content, :media, :time, :media_type);');
+      $stmt->execute([
+        'user_id' => $user_id,
+        'content' => $content,
+        'media' => $media,
+        'time' => $time,
+        'media_type' => $media_type
+      ]);
+    }
   }
 }

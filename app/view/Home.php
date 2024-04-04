@@ -1,6 +1,6 @@
 <?php
 require './controller/LoginChecker.php';
-//require './controller/PostProcess.php';
+require './controller/PostProcess.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +13,7 @@ require './controller/LoginChecker.php';
   <link rel="stylesheet" href="./view/CSS/home.css" />
   <!-- Unicons CSS -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="./view/JS/home.js" defer></script>
 </head>
 
@@ -41,19 +42,35 @@ require './controller/LoginChecker.php';
       <div><a href="/Logout">Logout</a></div>
     </div>
   </nav>
-  <div class="container2">
+  <div class="post-container">
     <h2>Create a Post</h2>
     <form action="/Home" method="post" enctype="multipart/form-data">
       <div class="form-group">
-        <label for="post-text">Write something:</label>
-        <textarea id="post-text" name="post-text" rows="4" cols="50"></textarea>
+        <label for="content">Write something:</label>
+        <textarea id="post-text" name="content" rows="4" cols="50"></textarea>
       </div>
       <div class="form-group">
-        <label for="post-image">Upload an image:</label>
-        <input type="file" id="post-image" name="post-image">
+        <label for="media">Upload an image:</label>
+        <input type="file" id="post-image" name="media">
       </div>
       <button type="submit">Post</button>
     </form>
+    <div id = 'post-error'>
+      <h3><?php echo $post_err_msg; ?></h3>
+    </div>
+  </div>
+  <div class="container">
+    <h2 id="top-posts-header">Recent Posts</h2>
+    <div class="posts-display">
+      <?php foreach($post_arr as $post): ?>
+        <?php require './view/PostDisplay.php'; ?>
+      <?php endforeach; ?>
+      <div id="loaded-content"></div>
+      <div id="load-message"></div>
+      <div class="btn-con">
+        <button id="more">See more</button>
+      </div>
+    </div>
   </div>
 </body>
 

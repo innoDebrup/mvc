@@ -11,7 +11,7 @@ body {
   background: #f0faff;
 }
 .nav {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -20,7 +20,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .nav,
-.nav .nav-links {
+.nav .nav-links, .posted-by {
   display: flex;
   align-items: center;
 }
@@ -159,8 +159,7 @@ a {
   }
 }
 
-.container2 {
-  margin-top: 100px;
+.post-container{
   max-width: 600px;
   margin: 80px auto;
   background-color: #fff;
@@ -208,4 +207,79 @@ a {
   button[type="submit"] {
     margin-top: 10px;
   }
+}
+
+.container {
+  padding: 15px 200px;
+}
+
+#top-posts-header {
+  font-size: 40px;
+  color: #4a98f7;
+}
+
+.post-row {
+  margin: 30px auto;
+}
+
+.pic {
+  border-radius: 50%;
+  background-color: #cccccc;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: #ffffff;
+  box-shadow: 0px 0px 6px rgba(20, 20, 20, 0.6);
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}
+
+.post {
+  margin-top: 20px;
+  img {
+    width: 100%;  
+  }
+}
+
+.uname {
+  margin-left: 20px;
+}
+
+.posted-by {
+  border-bottom: 1px solid #4a98f7;
+  padding-bottom: 10px;
+}
+
+.btn-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#more {
+  background-color: #4a98f7;
+  color: #ffffff;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-weight: 900;
+  font-size: 18px;
+}
+#load-message {
+  text-align: center;
+  padding: 20px 0 ;
+}
+
+.uil-thumbs-up {
+  cursor: pointer;
+}
+.like {
+  color: #4a98f7;
 }

@@ -60,7 +60,7 @@ class UpdateQuery extends ConnectDB {
    * 
    * @return void
    */
-  public function editFirstName($user_id, $first_name) {
+  public function editFirstName(int $user_id, string $first_name) {
     $conn = $this->conn;
     $stmt = $conn->prepare("UPDATE UserDetails SET first_name = :first_name WHERE user_id = :user_id");
     $stmt->execute([
@@ -79,7 +79,7 @@ class UpdateQuery extends ConnectDB {
    * 
    * @return void
    */
-  public function editLastName($user_id, $last_name) {
+  public function editLastName(int $user_id, string $last_name) {
     $conn = $this->conn;
     $stmt = $conn->prepare("UPDATE UserDetails SET last_name = :last_name WHERE user_id = :user_id");
     $stmt->execute([
@@ -98,7 +98,7 @@ class UpdateQuery extends ConnectDB {
    * 
    * @return void
    */
-  public function editCountry($user_id, $country) {
+  public function editCountry(int $user_id, string $country) {
     $conn = $this->conn;
     $stmt = $conn->prepare("UPDATE UserDetails SET country = :country WHERE user_id = :user_id");
     $stmt->execute([
@@ -117,7 +117,7 @@ class UpdateQuery extends ConnectDB {
    * 
    * @return void
    */
-  public function editProfile($user_id, $img) {
+  public function editProfile(int $user_id, string $img) {
     $conn = $this->conn;
     $stmt = $conn->prepare("UPDATE UserDetails SET profile_pic = :img WHERE user_id = :user_id");
     $stmt->execute([

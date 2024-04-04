@@ -2,18 +2,24 @@ $(document).ready(function() {
   $('#otpcon').hide();
   $("#check").click(function() {
     $.ajax({
-      url: 'controller/OTPProcess.php', // PHP file handling the request
-      type: 'POST', // Request method
-      data: { // Data to be sent to the server
+      // PHP file handling the request
+      url: 'controller/OTPProcess.php',
+      // Request method
+      type: 'POST',
+      // Data to be sent to the server       
+      data: { 
         message: 'Hello from AJAX!',
         email: $('#email').val()
       },
-      success: function(response) { // Callback function to handle successful AJAX response
-        $("#response").html(response); // Update HTML content with response
+      // Callback function to handle successful AJAX response
+      success: function(response) { 
+        // Update HTML content with response
+        $("#response").html(response);
         $('#otpcon').slideDown(200);
         $('#check').val('Resend OTP');
       },
-      error: function(xhr, status, error) { // Callback function to handle error
+      // Callback function to handle error
+      error: function(xhr, status, error) { 
         console.error(xhr.responseText);  
       }
     });

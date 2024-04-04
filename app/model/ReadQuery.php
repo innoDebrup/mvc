@@ -156,4 +156,46 @@ class ReadQuery extends ConnectDB {
     $result_arr = $stmt->fetch(PDO::FETCH_ASSOC);
     return $result_arr;
   }
+
+  /**
+   * Function to get the post contents.
+   *
+   * @param integer $limit
+   *  Limit to set the max no. of rows to show.
+   * @param integer $offset
+   *  Initial offset to start the selection.
+   * 
+   * @return array
+   */
+  public function getPosts(int $limit, int $offset) {
+    $conn = $this->conn;
+    $stmt = $conn->prepare("SELECT 
+        u.user_name, 
+        profile_pic, 
+        post_id, 
+        content, 
+        media, 
+        likes, 
+        time 
+      FROM 
+        Posts p 
+      JOIN 
+        Users u 
+      ON 
+        p.user_id = u.user_id 
+      JOIN
+        UserDetails ud
+      ON
+        u.user_id = ud.user_id 
+      ORDER BY 
+        time
+      DESC 
+      LIMIT 
+        $limit 
+      OFFSET 
+        $offset ;");
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+  }
 }
