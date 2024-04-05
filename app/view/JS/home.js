@@ -56,8 +56,29 @@ $(document).ready(function() {
   });
   // Like feature (Testing only).
   $(document).on("click", "#like-con", function(){
-    let id = $(this).data('post-id');
-    $(this).find('.like').append(id);
+    let postid = $(this).data('post-id');
+    let userid = $("#user-id").val();
+    let likes = $(this).find("#like-count").data('likes');
+    let $this = $(this);
+    $.ajax({
+      // PHP file handling the request
+      url: 'AJAX/Like.php',
+      // Request method
+      type: 'POST',
+      // Data to be sent to the server       
+      data: { 
+        post_id: postid,
+        user_id: userid 
+      },
+      // Callback function to handle successful AJAX response
+      success: function(response) { 
+        $this.find('#like-count').text(likes + 1);
+      },
+      // Callback function to handle error
+      error: function(xhr, status, error) { 
+        console.error(xhr.responseText);  
+      }
+    });
   });
 
 });

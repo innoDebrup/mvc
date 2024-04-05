@@ -1,10 +1,5 @@
 <?php
-if ($_SERVER['SCRIPT_NAME'] == '/index.php') {
-  require '../vendor/autoload.php';
-}
-else {
-  require '../../vendor/autoload.php';
-}
+require __DIR__.'/../vendor/autoload.php';
 
 use Dotenv\Dotenv;
 /**

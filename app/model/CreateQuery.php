@@ -1,5 +1,5 @@
 <?php
-require_once 'ConnectDB.php';
+require_once __DIR__.'/ConnectDB.php';
 /**
  * Class that handles all Create operations for the Web-App.
  */
@@ -63,5 +63,14 @@ class CreateQuery extends ConnectDB {
         'media_type' => $media_type
       ]);
     }
+  }
+
+  public function addLike(int $post_id, int $user_id) {
+    $conn = $this->conn;
+    $stmt = $conn->prepare('INSERT INTO Likes (post_id, user_id) VALUES (:post_id, :user_id);');
+    $stmt->execute([
+      'post_id' => $post_id,
+      'user_id' => $user_id
+    ]);
   }
 }

@@ -126,6 +126,14 @@ class UpdateQuery extends ConnectDB {
     ]);
   }
 
+  public function updateLike(int $post_id) {
+    $conn = $this->conn;
+    $stmt = $conn->prepare("UPDATE Posts SET likes = likes + 1 WHERE post_id = :post_id");
+    $stmt->execute([
+      'post_id' => $post_id
+    ]);
+  }
+
 }
 
 

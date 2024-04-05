@@ -1,6 +1,7 @@
 <?php
 require '../controller/LoginChecker.php';
 require '../controller/PostProcess.php';
+require '../controller/LikeCheck.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,6 +65,11 @@ require '../controller/PostProcess.php';
       <h3><?php echo $post_err_msg; ?></h3>
     </div>
   </div>
+  <div>
+    <form action="/Home">
+      <input type="text" name="hiddenid" value="<?php echo $user_id?>" id="user-id" hidden>
+    </form>
+  </div>
   <div class="container">
     <h2 id="top-posts-header">Recent Posts</h2>
     <div class="posts-display">
@@ -77,6 +83,7 @@ require '../controller/PostProcess.php';
       </div>
     </div>
   </div>
+  <div id="debug"></div>
 </body>
 
 </html>

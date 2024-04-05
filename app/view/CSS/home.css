@@ -11,7 +11,7 @@ body {
   background: #f0faff;
 }
 .nav {
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -281,5 +281,10 @@ a {
   cursor: pointer;
 }
 .like {
+  display: inline-block;
+  color: #4a98f7;
+}
+#like-count {
+  display: inline-block;
   color: #4a98f7;
 }

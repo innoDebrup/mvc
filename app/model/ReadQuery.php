@@ -1,5 +1,5 @@
 <?php
-require_once 'ConnectDB.php';
+require_once __DIR__.'/ConnectDB.php';
 /**
  * Class that handles all Create operations for the Web-App.
  */
@@ -142,12 +142,12 @@ class ReadQuery extends ConnectDB {
   /**
    * Function to retrieve User Details of the given user.
    *
-   * @param string $user_id
+   * @param int $user_id
    *  User_ID of the required user.
    * 
    * @return mixed
    */
-  public function getUserDetails(string $user_id) {
+  public function getUserDetails(int $user_id) {
     $conn = $this->conn;
     $stmt = $conn->prepare("SELECT * FROM UserDetails WHERE user_id = :userid ;");
     $stmt->execute([
@@ -174,8 +174,9 @@ class ReadQuery extends ConnectDB {
         profile_pic, 
         post_id, 
         content, 
-        media, 
-        likes, 
+        media,
+        media_type, 
+        likes,
         time 
       FROM 
         Posts p 
@@ -191,10 +192,20 @@ class ReadQuery extends ConnectDB {
         time
       DESC 
       LIMIT 
-        $limit 
+        $limit
       OFFSET 
         $offset ;");
     $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+  }
+
+  public function Liked(int $user_id) {
+    $conn = $this->conn;
+    $stmt = $conn->prepare("SELECT post_id FROM Likes WHERE user_id = :user_id;");
+    $stmt->execute([
+      'user_id'=>$user_id
+    ]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $result;
   }

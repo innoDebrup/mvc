@@ -10,12 +10,15 @@
     <h5 class="uname"><?php echo $post['user_name'] ?></h5>
   </div>
   <div class="post">
-    <p><?php echo $post['content'] ?></p>
-    <img src="data:<?php echo $post['media_type'];?>;base64, <?php echo (base64_encode($post['media'])); ?>" alt="">
+    <p ><?php echo $post['content'] ?></p>
+    <?php if ($post['media']): ?>
+      <img src="data:<?php echo $post['media_type'];?>;base64, <?php echo (base64_encode($post['media'])); ?>" alt="">
+    <?php endif; ?>
   </div>
-  <div id="like-con" data-post-id="<?php echo $post['post_id'];?>">
-    <i class="uil uil-thumbs-up like">
-      <?php echo $post['likes'];?>
-    </i>
+  <div id="like-con" data-post-id="<?php echo $post['post_id'];?>" >
+    <i class="uil uil-thumbs-up like"></i>
+    <div id="like-count" data-likes="<?php echo $post['likes'];?>">
+        <?php echo $post['likes'];?>
+    </div>
   </div>
 </div>
