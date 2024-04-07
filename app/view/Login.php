@@ -37,11 +37,15 @@
               <li><a href="/ForgotPass">Forgot your Password? </a></li>
             </ul>
           </div>
-          <input type="submit" value="Submit">
+          <input type="submit" value="Sign-In">
+        </form>
+        <form action="/" method="post">
+              <input type="submit" name="LinkedIn" value="Sign-in with LinkedIn" id="linkedin">
         </form>
         <?php if ($invalid) : ?>
-          <div>
-            <h2>Invalid Username/Email or Password.</h2>
+          <div class="center">
+            <h2>Invalid Username/Email or Password.</h2><br>
+            <h2><?php echo $password_msg; ?></h2>
           </div>
         <?php endif; ?>
       </div>

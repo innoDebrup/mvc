@@ -200,6 +200,14 @@ class ReadQuery extends ConnectDB {
     return $result;
   }
 
+  /**
+   * Function to checked which posts a user has liked.
+   *
+   * @param integer $user_id
+   *  User_id of the user.
+   * 
+   * @return void
+   */
   public function Liked(int $user_id) {
     $conn = $this->conn;
     $stmt = $conn->prepare("SELECT post_id FROM Likes WHERE user_id = :user_id;");

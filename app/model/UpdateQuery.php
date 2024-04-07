@@ -126,6 +126,14 @@ class UpdateQuery extends ConnectDB {
     ]);
   }
 
+  /**
+   * Function to update Total no. of likes of a post in the post table.
+   *
+   * @param integer $post_id
+   *  Unique post_id of the post.
+   * 
+   * @return void
+   */
   public function updateLike(int $post_id) {
     $conn = $this->conn;
     $stmt = $conn->prepare("UPDATE Posts SET likes = likes + 1 WHERE post_id = :post_id");

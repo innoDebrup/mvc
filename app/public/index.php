@@ -1,7 +1,9 @@
 <?php
+require_once __DIR__ . '/../controller/LinkedInAPIv2.php';
 $url = parse_url($_SERVER['REQUEST_URI']);
 $path = $url['path'];
 $query = '';
+$linked_in = new LinkedInAPIv2();
 if (isset($url['query'])) {
   $query = $url['query'];
 }
