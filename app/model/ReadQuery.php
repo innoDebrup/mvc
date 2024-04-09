@@ -239,9 +239,12 @@ class ReadQuery extends ConnectDB {
   }
 
   /**
-   * Function to get the post conmments.
+   * Function to get all the comments of a post.
+   *
+   * @param integer $post_id
+   *  Post_id of the post whose comments are to be loaded.
    * 
-   * @return array
+   * @return void
    */
   public function getComments(int $post_id) {
     $conn = $this->conn;
