@@ -37,7 +37,7 @@ class LinkedInAPIv2 {
     LoadEnv::loadDotEnv();
     $client_id = $_ENV['CLIENT_ID'];
     $redirect = 'http://mvc.com/';
-    $scope = rawurlencode('openid profile email');
+    $scope = rawurlencode('openid email');
     $this->url = "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=$client_id&redirect_uri=$redirect&state=foobar&scope=$scope";
   }
   
@@ -95,7 +95,8 @@ class LinkedInAPIv2 {
     try {
       $decoded_token = explode('.', $id_token);
       $payload_encrypted = $decoded_token[1];
-      $payload = json_decode(base64_decode($payload_encrypted), true);
+      $raw_decoded = base64_decode($payload_encrypted);
+      $payload = json_decode($raw_decoded, true);
       return $payload;
     }
     catch (Exception $e){

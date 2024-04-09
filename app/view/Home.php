@@ -1,7 +1,6 @@
 <?php
 require '../controller/LoginChecker.php';
 require '../controller/PostProcess.php';
-require '../controller/LikeCheck.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,16 +9,16 @@ require '../controller/LikeCheck.php';
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Navigation Bar with Search Box</title>
+  <title>Home</title>
   <style>
-  <?php require '../view/CSS/home.css';?>
+  <?php require __DIR__ . '/CSS/home.css';?>
   </style>
-  <!-- <link rel="stylesheet" href="../view/CSS/home.css" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
   <!-- Unicons CSS -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script>
-  <?php require '../view/JS/home.js'; ?>
+  <?php require __DIR__ . '/JS/home.js'; ?>
   </script>
 </head>
 
@@ -66,7 +65,7 @@ require '../controller/LikeCheck.php';
     </div>
   </div>
   <div>
-    <form action="/Home">
+    <form>
       <input type="text" name="hiddenid" value="<?php echo $user_id?>" id="user-id" hidden>
     </form>
   </div>

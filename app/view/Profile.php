@@ -37,8 +37,14 @@ require '../controller/ProfileProcess.php';
         </div>
         <div class="user-name">
           <h1><?php echo $user_name; ?></h1>
+          <div>
+            <a class="edit">Edit UserName</a>
+            <form action="/Profile" method="post" class="edit-input">
+              <input type="text" name="u_name" placeholder="Enter Your new User-Name" maxlength="30">
+              <input type="submit" value="Submit">
+            </form>
+          </div>
         </div>
-      </div>
       <?php if ($error): ?>
         <div class="error">
           <h2>File Type not allowed.</h2>

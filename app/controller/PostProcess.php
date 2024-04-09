@@ -2,6 +2,7 @@
 require '../model/QueryCall.php';
 $user_info = $read->getUserInfo($_SESSION['user_mail']);
 $user_id = $user_info['user_id'];
+$_SESSION['user_id'] = $user_id;
 $user_name = $user_info['user_name'];
 $post_err_msg = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -21,5 +22,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $post_err_msg = 'You cannot post without Writing something! Write something :)';
   }
 }
-
+$liked_posts = $read->Liked($user_id);
 $post_arr = $read->getPosts(2,0);

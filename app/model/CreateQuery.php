@@ -108,4 +108,24 @@ class CreateQuery extends ConnectDB {
       'user_id' => $user_id
     ]);
   }
+
+  /**
+   * Function to insert an entry in the Comments table.
+   *
+   * @param integer $post_id
+   *  Post id of the respective post.
+   * @param integer $user_id
+   *  User id of the user who commented the post.
+   * 
+   * @return void
+   */
+  public function addComment(int $post_id, int $user_id, string $comment) {
+    $conn = $this->conn;
+    $stmt = $conn->prepare('INSERT INTO Comments (post_id, user_id, comment) VALUES (:post_id, :user_id, :comment);');
+    $stmt->execute([
+      'post_id' => $post_id,
+      'user_id' => $user_id,
+      'comment' => $comment
+    ]);
+  }
 }

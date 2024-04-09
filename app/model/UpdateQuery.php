@@ -1,5 +1,5 @@
 <?php
-require_once 'ConnectDB.php';
+require_once __DIR__ . '/ConnectDB.php';
 /**
  * Class that handles all Create operations for the Web-App.
  */
@@ -127,18 +127,53 @@ class UpdateQuery extends ConnectDB {
   }
 
   /**
-   * Function to update Total no. of likes of a post in the post table.
+   * Function to increment Total no. of likes of a post in the post table.
    *
    * @param integer $post_id
    *  Unique post_id of the post.
    * 
    * @return void
    */
-  public function updateLike(int $post_id) {
+  public function incrementLike(int $post_id) {
     $conn = $this->conn;
     $stmt = $conn->prepare("UPDATE Posts SET likes = likes + 1 WHERE post_id = :post_id");
     $stmt->execute([
       'post_id' => $post_id
+    ]);
+  }
+
+  /**
+   * Function to increment Total no. of likes of a post in the post table.
+   *
+   * @param integer $post_id
+   *  Unique post_id of the post.
+   * 
+   * @return void
+   */
+  public function decrementLike(int $post_id) {
+    $conn = $this->conn;
+    $stmt = $conn->prepare("UPDATE Posts SET likes = likes - 1 WHERE post_id = :post_id");
+    $stmt->execute([
+      'post_id' => $post_id
+    ]);
+  }
+
+  /**
+   * Function to change the user name of the given user.
+   *
+   * @param int $user_id
+   *  User-id of the user who wants to change their username.
+   * @param string $new_name
+   *  New user-name of the user. 
+   * 
+   * @return void
+   */
+  public function changeUserName(int $user_id, string $new_name) {
+    $conn = $this->conn;
+    $stmt = $conn->prepare("UPDATE Users SET user_name = :new_name WHERE user_id = :user_id");
+    $stmt->execute([
+      'new_name' => $new_name,
+      'user_id' => $user_id 
     ]);
   }
 

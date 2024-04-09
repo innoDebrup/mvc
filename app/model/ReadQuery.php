@@ -201,12 +201,32 @@ class ReadQuery extends ConnectDB {
   }
 
   /**
+   * Function to obtain the total no. of likes of a post.
+   *
+   * @param int $post_id
+   *  The post_id of the post.
+   * 
+   * @return int
+   *  Total no. of likes are returned.
+   */
+  public function getTotalLikes(int $post_id) {
+    $conn = $this->conn;
+    $stmt = $conn->prepare('SELECT likes FROM Posts WHERE post_id = :post_id;');
+    $stmt->execute([
+      'post_id' => $post_id
+    ]);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result['likes'];
+  }
+
+  /**
    * Function to checked which posts a user has liked.
    *
    * @param integer $user_id
    *  User_id of the user.
    * 
-   * @return void
+   * @return array|false
+   *  Returns array of rows selected OR FALSE if no suitable rows are present.
    */
   public function Liked(int $user_id) {
     $conn = $this->conn;
@@ -216,5 +236,59 @@ class ReadQuery extends ConnectDB {
     ]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $result;
+  }
+
+  /**
+   * Function to get the post conmments.
+   * 
+   * @return array
+   */
+  public function getComments(int $post_id) {
+    $conn = $this->conn;
+    $stmt = $conn->prepare("SELECT 
+        u.user_name, 
+        profile_pic, 
+        post_id, 
+        comment
+      FROM 
+        Comments c 
+      JOIN 
+        Users u 
+      ON 
+        c.user_id = u.user_id 
+      JOIN
+        UserDetails ud
+      ON
+        u.user_id = ud.user_id 
+      WHERE 
+        c.post_id = :post_id
+      ORDER BY
+        c_id
+      DESC;
+    ");
+    $stmt->execute([
+      'post_id'=>$post_id
+    ]);
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+  }
+
+  /**
+   * Function to obtain the total no. of comments on a post.
+   *
+   * @param int $post_id
+   *  The post_id of the post.
+   * 
+   * @return int
+   *  Total no. of comments are returned.
+   */
+  public function getTotalComments(int $post_id) {
+    $conn = $this->conn;
+    $stmt = $conn->prepare('SELECT COUNT(*) AS total_comments FROM Comments WHERE post_id = :post_id;');
+    $stmt->execute([
+      'post_id' => $post_id
+    ]);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result['total_comments'];
   }
 }

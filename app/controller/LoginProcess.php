@@ -31,12 +31,11 @@ elseif (isset($_GET['code'])) {
   $linked_in->getAccess($_GET['code']);
   $response = $linked_in->getInfo();
   $response_error = $linked_in->getError();
-  $user_email = $response['email'];
-  $user_name = $response['name']; 
+  $user_email = $user_name = $response['email'];
   if (!$read->checkEmail($user_email)) {
     $create->addUser($user_name, $user_email, NULL);
     header('Location: /Home');
-    $user_mail = $response['email'];
+    $user_mail = $user_email;
   }
   session_start();
   $_SESSION['user_mail'] = $user_email;

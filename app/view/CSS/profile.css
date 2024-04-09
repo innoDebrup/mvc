@@ -15,8 +15,10 @@ body {
   margin: 0 auto;
 }
 .user-name {
-  color: #4a98f7;
-  font-size: 50px;
+  h1{
+    color: #4a98f7;
+    font-size: 30px;
+  }
 }
 tbody{
   display: flex;
@@ -46,6 +48,7 @@ tr {
   cursor: pointer;
   text-decoration: none;
   text-align: center;
+  margin-right: 30px;
 }
 
 .profile {
@@ -80,7 +83,7 @@ tr {
 }
 
 .edit-input {
-  margin-left: 30px;
+  /* margin-left: 30px; */
   input[type = 'text'] {
     color: #1c1dff;
     padding: 5px;
