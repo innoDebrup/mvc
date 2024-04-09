@@ -7,8 +7,13 @@ $linked_in = new LinkedInAPIv2();
 if (isset($url['query'])) {
   $query = $url['query'];
 }
-
+// var_dump(http_response_code());
 switch ($path) {
+  case '/':
+  case '/Index':
+  case '/Login':
+    require '../view/Login.php';
+    break;
   case '/SignUp':
     require '../view/SignUp.php';
     break;
@@ -28,6 +33,5 @@ switch ($path) {
     require '../view/Profile.php';
     break;
   default:
-    require '../view/Login.php';
-    break;
+    require '404.php';
 }
