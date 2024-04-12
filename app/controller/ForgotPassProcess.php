@@ -4,7 +4,7 @@ require_once '../controller/SendMail.php';
 
 $send_mail = new SendMail();
 $sent = 0;
-if($_SERVER['REQUEST_METHOD']=='POST'){
+if ($_SERVER['REQUEST_METHOD']=='POST') {
   $email = htmlspecialchars($_POST['email']);
   $email_present = $read->checkEmail($email);
   // Send Reset Link to the email only if it is registered.

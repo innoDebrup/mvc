@@ -1,2 +1,3 @@
-/vendor
+vendor
+public/assets/*
 !.gitignore
