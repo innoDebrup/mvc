@@ -178,6 +178,3 @@ class UpdateQuery extends ConnectDB {
   }
 
 }
-
-
-

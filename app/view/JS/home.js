@@ -143,5 +143,3 @@ $(document).ready(function() {
     });
   });  
 });
-
-
