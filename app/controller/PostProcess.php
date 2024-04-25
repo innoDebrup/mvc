@@ -1,5 +1,5 @@
 <?php
-require '../model/QueryCall.php';
+require __DIR__ . '../model/QueryCall.php';
 $user_info = $read->getUserInfo($_SESSION['user_mail']);
 $user_id = $user_info['user_id'];
 $_SESSION['user_id'] = $user_id;

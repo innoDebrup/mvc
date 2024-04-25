@@ -26,7 +26,7 @@
 
       </div>
       <div class="vert-form">
-        <form action="/index" method="post">
+        <form action="/" method="post">
           <label for="user_mail">Username/Email</label>
           <input type="text" name="user_mail" placeholder="Enter your username or email." required>
           <label for="password">Password</label>
